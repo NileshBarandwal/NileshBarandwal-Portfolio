@@ -1,0 +1,42 @@
+{
+  "designSystem": "Cinematic Portfolio System",
+  "colorMode": "dark",
+  "colors": {
+    "primary": "#c9beff",
+    "on-primary": "#311c7e",
+    "background": "#08080A",
+    "surface": "#131315",
+    "surface-variant": "#353437",
+    "on-surface": "#e5e1e4",
+    "on-surface-variant": "#c9c4d3",
+    "outline-variant": "#484552"
+  },
+  "typography": {
+    "display-xl": { "size": "72px", "lineHeight": "1.1", "letterSpacing": "-0.04em", "weight": "800", "family": "Cabinet Grotesk" },
+    "headline-lg": { "size": "48px", "lineHeight": "1.2", "letterSpacing": "-0.02em", "weight": "700", "family": "Cabinet Grotesk" },
+    "headline-md": { "size": "32px", "lineHeight": "1.3", "weight": "700", "family": "Cabinet Grotesk" },
+    "body-lg": { "size": "18px", "lineHeight": "1.6", "weight": "400", "family": "Geist" },
+    "body-md": { "size": "16px", "lineHeight": "1.6", "weight": "400", "family": "Geist" },
+    "label-sm": { "size": "12px", "lineHeight": "1", "letterSpacing": "0.1em", "weight": "600", "family": "Geist Mono" }
+  },
+  "spacing": {
+    "unit": "4px",
+    "stack-sm": "12px",
+    "stack-md": "24px",
+    "stack-lg": "48px",
+    "gutter": "32px",
+    "margin": "64px",
+    "container-max": "1440px"
+  },
+  "borderRadius": {
+    "DEFAULT": "0.25rem",
+    "lg": "0.5rem",
+    "xl": "0.75rem",
+    "full": "9999px"
+  },
+  "effects": {
+    "glassCard": "rgba(22,22,26,0.4) + backdrop-blur(12px) + 1px border rgba(201,190,255,0.1)",
+    "grainOverlay": "opacity 0.04, SVG fractal noise",
+    "dotGrid": "radial-gradient 40px, primary/5%"
+  }
+}
