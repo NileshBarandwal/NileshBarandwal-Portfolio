@@ -33,10 +33,11 @@ export function Hero() {
           </a>
           <a
             href={siteConfig.cvUrl}
+            download
             className="inline-flex items-center justify-center gap-2 h-12 bg-surface/80 backdrop-blur-sm border border-white/20 text-on-surface px-10 rounded-lg font-mono text-label-sm tracking-widest hover:bg-surface hover:border-primary/50 transition-all uppercase"
           >
             <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>download</span>
-            CV
+            Resume
           </a>
         </div>
 
