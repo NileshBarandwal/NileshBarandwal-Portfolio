@@ -7,7 +7,7 @@ export const siteConfig = {
   email: 'nilesh.barandwal@iitdh.ac.in',
   github: 'https://github.com/NileshBarandwal',
   linkedin: 'https://www.linkedin.com/in/nilesh-barandwal-8403ab182/',
-  cvUrl: 'NILESH ROHIDAS BARANDWAL_Resume.pdf',
+  cvUrl: '/NileshBarandwal-Portfolio/resume/NILESH_ROHIDAS_BARANDWAL_Resume.pdf',
   footerCredit: 'BUILT BY NILESH BARANDWAL.',
   copyright: '© 2026 NILESH BARANDWAL. ALL RIGHTS RESERVED.',
 }
