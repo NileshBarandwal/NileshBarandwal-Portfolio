@@ -20,7 +20,7 @@ function ContactLink({ href, label }: ContactLinkProps) {
 
 export function Contact() {
   return (
-    <section id="contact" className="px-gutter py-margin mb-margin">
+    <section id="contact" className="px-gutter py-margin">
       <div className="flex flex-col md:flex-row justify-between items-end gap-margin">
         <div className="space-y-stack-md">
           <h2 className="font-display text-display-xl leading-[0.9] tracking-tighter">

@@ -6,6 +6,8 @@ import { Chronicle } from './components/Chronicle'
 import { SelectedWorks } from './components/SelectedWorks'
 import { ResearchSection } from './components/ResearchSection'
 import { TechnicalArsenal } from './components/TechnicalArsenal'
+import { Achievements } from './components/Achievements'
+import { PositionsOfResponsibility } from './components/PositionsOfResponsibility'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 
@@ -20,6 +22,8 @@ function App() {
         <SelectedWorks />
         <ResearchSection />
         <TechnicalArsenal />
+        <Achievements />
+        <PositionsOfResponsibility />
         <Contact />
       </main>
       <Footer />

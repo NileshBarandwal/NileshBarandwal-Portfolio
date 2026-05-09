@@ -141,6 +141,8 @@ export const navLinks = [
   { label: 'Projects', href: '#projects' },
   { label: 'Research', href: '#research' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Achievements', href: '#achievements' },
+  { label: 'PoR', href: '#por' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -175,6 +177,46 @@ export const achievements = [
     title: 'e-Yantra Robotics Challenge',
     subtitle: 'IIT Bombay',
     description: 'Top 25 teams in India to successfully submit the final solution.',
+  },
+]
+
+export type PositionItem = {
+  role: string
+  org: string
+  period: string
+  description: string
+}
+
+export const positions: PositionItem[] = [
+  {
+    role: 'Senate & PGAPEC Student Member',
+    org: 'IIT Dharwad',
+    period: '2025 — 26',
+    description: 'Represented M.Tech. students in academic policy discussions, curriculum review, and student-faculty coordination.',
+  },
+  {
+    role: 'Student Placement Coordinator',
+    org: 'IIT Dharwad',
+    period: '2024 — 25',
+    description: 'Coordinated placement activities, acted as liaison between students and recruiters, organized full-time job drives, and managed team logistics.',
+  },
+  {
+    role: 'Inbound Head, International Relations Office',
+    org: 'IIT Dharwad',
+    period: '2024 — 25',
+    description: 'Led selection and management of buddies for the inbound international student program. Coordinated with IRO Head and organized events for international students.',
+  },
+  {
+    role: 'Head TA, Computer Programming (CS101)',
+    org: 'IIT Dharwad',
+    period: '2024',
+    description: 'Managed TAs, assisted professor in lab design, and evaluated coursework for 300+ students.',
+  },
+  {
+    role: 'Head Associate, Web Team',
+    org: 'HarshTaal 25, IIT Dharwad Cultural Fest',
+    period: '2025',
+    description: 'Led team for website design, deployment, and maintenance for the annual cultural festival.',
   },
 ]
 
