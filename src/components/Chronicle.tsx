@@ -35,7 +35,7 @@ export function Chronicle() {
   return (
     <section id="work" className="px-gutter py-margin border-t border-outline-variant/10">
       <h2 className="font-display text-headline-lg tracking-widest text-on-surface/30 mb-margin uppercase">
-        Chronicle
+        Experience
       </h2>
       <div className="relative pl-margin border-l border-outline-variant/30 space-y-margin">
         {experience.map((item) => (
