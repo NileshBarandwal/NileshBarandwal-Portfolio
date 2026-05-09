@@ -36,21 +36,31 @@ export function Contact() {
           className="absolute top-1/2 right-[20%] -translate-y-1/2 w-72 h-72 rounded-full pointer-events-none"
           style={{ background: 'rgba(100, 55, 170, 0.18)', filter: 'blur(60px)' }}
         />
-        <div className="relative z-10 flex flex-col md:flex-row justify-between items-end gap-margin">
-          <div className="space-y-stack-md">
-            <h2 className="font-display text-display-xl leading-[0.9] tracking-tighter">
-              INITIATE
-              <br />
-              CONTACT
-            </h2>
-            <p className="font-body text-body-lg text-on-surface-variant opacity-70">
-              Open to full-time roles and internships.
-            </p>
+        <div className="relative z-10 flex flex-col gap-margin">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-margin">
+            <div className="space-y-stack-md">
+              <h2 className="font-display text-display-xl leading-[0.9] tracking-tighter">
+                INITIATE
+                <br />
+                CONTACT
+              </h2>
+              <p className="font-body text-body-lg text-on-surface-variant opacity-70">
+                Open to full-time roles and internships.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 items-end">
+              <ContactLink href={`mailto:${siteConfig.email}`} label="EMAIL" />
+              <ContactLink href={siteConfig.github} label="GITHUB" />
+              <ContactLink href={siteConfig.linkedin} label="LINKEDIN" />
+            </div>
           </div>
-          <div className="flex flex-col gap-2 items-end">
-            <ContactLink href={`mailto:${siteConfig.email}`} label="EMAIL" />
-            <ContactLink href={siteConfig.github} label="GITHUB" />
-            <ContactLink href={siteConfig.linkedin} label="LINKEDIN" />
+          <div className="border-t border-white/5 pt-stack-md flex flex-col md:flex-row md:justify-between md:items-center gap-2 text-center md:text-left">
+            <span className="font-mono text-[10px] text-on-surface-variant opacity-40 uppercase tracking-[0.4em]">
+              {siteConfig.footerCredit}
+            </span>
+            <span className="font-mono text-[10px] text-on-surface-variant opacity-40 uppercase tracking-[0.4em]">
+              {siteConfig.copyright}
+            </span>
           </div>
         </div>
       </div>

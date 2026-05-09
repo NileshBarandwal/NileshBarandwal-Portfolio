@@ -9,7 +9,6 @@ import { TechnicalArsenal } from './components/TechnicalArsenal'
 import { Achievements } from './components/Achievements'
 import { PositionsOfResponsibility } from './components/PositionsOfResponsibility'
 import { Contact } from './components/Contact'
-import { Footer } from './components/Footer'
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
         <PositionsOfResponsibility />
         <Contact />
       </main>
-      <Footer />
     </div>
   )
 }
