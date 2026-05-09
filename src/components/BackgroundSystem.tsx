@@ -10,7 +10,7 @@ export function BackgroundSystem() {
         <img
           alt="Background Texture"
           className="w-full h-full object-cover animate-background-alive"
-          src="/portfolio/hero-bg.jpg"
+          src="/NileshBarandwal-Portfolio/hero-bg.jpg"
         />
       </div>
       {/* Dark scrim so content stays legible */}
