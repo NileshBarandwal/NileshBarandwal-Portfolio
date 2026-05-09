@@ -54,7 +54,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               className="inline-flex items-center gap-1 font-mono text-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest uppercase"
             >
               <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>code</span>
-              Source
+              GitHub
             </a>
           )}
         </div>
