@@ -2,7 +2,7 @@ import { researchData } from '../data/mockData'
 
 export function ResearchSection() {
   return (
-    <section id="research" className="my-margin">
+    <section id="research" className="my-margin px-gutter">
       {/* Cosmic card — matches "Nilesh | new" Stitch design */}
       <div
         className="relative overflow-hidden rounded-2xl border border-white/5 py-20 px-8 md:px-16 text-center"
