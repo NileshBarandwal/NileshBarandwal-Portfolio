@@ -47,6 +47,10 @@
     animation: blink 1s infinite;
   }
 
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+
   .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
     font-weight: normal;

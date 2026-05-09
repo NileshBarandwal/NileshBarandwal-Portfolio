@@ -1,29 +1,32 @@
 import { siteConfig } from '../data/mockData'
+import { useTypewriter } from '../hooks/useTypewriter'
 
 export function Hero() {
+  const role = useTypewriter()
+
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center px-gutter pt-32 pb-margin">
-      <div className="w-full flex flex-col items-center space-y-stack-md z-10 max-w-4xl">
-        <h1 className="font-display text-display-xl leading-[0.95] mb-6 hero-title-clip">
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center space-y-stack-md">
+
+        <h1 className="font-display text-display-xl leading-[0.95] hero-title-clip">
           Building things that <span className="italic">work</span>.
           <br />
           Securing things that{' '}
-          <span className="text-primary" style={{ WebkitTextFillColor: '#c9beff' }}>
-            matter
-          </span>
-          .
+          <span style={{ WebkitTextFillColor: '#c9beff' }}>matter</span>.
         </h1>
-        <div className="flex flex-col items-center space-y-stack-sm">
-          <p className="font-mono text-primary text-label-sm uppercase tracking-[0.3em] typewriter">
-            {siteConfig.title}
-          </p>
-          <p className="font-body text-body-lg text-on-surface-variant max-w-2xl leading-relaxed opacity-80">
-            {siteConfig.bio}
-          </p>
-        </div>
-        <div className="flex flex-wrap justify-center items-center gap-stack-md pt-stack-md">
+
+        <p className="font-body text-body-lg text-on-surface-variant max-w-xl leading-relaxed opacity-80">
+          {siteConfig.bio}
+        </p>
+
+        <p className="font-mono text-label-sm text-on-surface-variant uppercase tracking-[0.3em] h-4">
+          {role}
+          <span className="animate-blink">|</span>
+        </p>
+
+        <div className="flex flex-wrap justify-center items-center gap-stack-md pt-stack-sm">
           <a
-            href="#work"
+            href="#projects"
             className="inline-flex items-center justify-center h-12 bg-primary text-on-primary px-10 rounded-lg font-mono text-label-sm tracking-widest hover:shadow-[0_0_30px_rgba(157,141,241,0.5)] transition-all uppercase"
           >
             View Projects
@@ -36,6 +39,7 @@ export function Hero() {
             CV
           </a>
         </div>
+
       </div>
     </section>
   )

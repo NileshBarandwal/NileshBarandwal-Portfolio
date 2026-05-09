@@ -26,9 +26,9 @@ function SkillCard({ category }: SkillCardProps) {
 
 export function TechnicalArsenal() {
   return (
-    <section className="px-gutter py-margin">
+    <section id="skills" className="px-gutter py-margin">
       <h2 className="font-display text-headline-lg mb-margin">THE TECHNICAL ARSENAL</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
         {skillCategories.map((category) => (
           <SkillCard key={category.label} category={category} />
         ))}

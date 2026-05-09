@@ -33,7 +33,7 @@ function ChronicleItem({ item }: ChronicleItemProps) {
 
 export function Chronicle() {
   return (
-    <section id="experience" className="px-gutter py-margin border-t border-outline-variant/10">
+    <section id="work" className="px-gutter py-margin border-t border-outline-variant/10">
       <h2 className="font-display text-headline-lg tracking-widest text-on-surface/30 mb-margin uppercase">
         Chronicle
       </h2>
