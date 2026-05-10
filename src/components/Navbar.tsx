@@ -3,25 +3,33 @@ import { navLinks } from '../data/mockData'
 
 function NBLogo() {
   return (
-    <a href="#home" aria-label="Home">
-      <span
-        style={{
-          fontFamily: "'Cabinet Grotesk', sans-serif",
-          fontWeight: 800,
-          fontSize: '2rem',
-          letterSpacing: '-0.03em',
-          lineHeight: 1,
-          background:
-            'linear-gradient(135deg, #b084ff 0%, #c9beff 40%, #a78bfa 70%, #7c3aed 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-          animation: 'nb-glow-pulse 3s ease-in-out infinite',
-          display: 'inline-block',
-        }}
-      >
-        NB
-      </span>
+    <a href="#home" aria-label="Home" className="flex items-center">
+      <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Subtle halo behind the logo */}
+        <div style={{
+          position: 'absolute',
+          inset: '-12px',
+          background: 'radial-gradient(ellipse at center, rgba(134,59,255,0.2) 0%, transparent 70%)',
+          filter: 'blur(8px)',
+          borderRadius: '50%',
+          animation: 'nb-halo-pulse 4s ease-in-out infinite',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }} />
+        <img
+          src={`${import.meta.env.BASE_URL}logo.png`}
+          alt="NB"
+          style={{
+            height: '64px',
+            width: 'auto',
+            display: 'block',
+            borderRadius: '8px',
+            position: 'relative',
+            zIndex: 1,
+            animation: 'nb-logo-pulse 4s ease-in-out infinite',
+          }}
+        />
+      </div>
     </a>
   )
 }
@@ -33,7 +41,7 @@ export function Navbar() {
   const navRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -64,70 +72,88 @@ export function Navbar() {
   const handleClick = (href: string) => setActiveSection(href.replace('#', ''))
 
   return (
-    <nav
-      className="fixed top-0 left-0 w-full flex justify-between items-center px-gutter py-stack-sm z-50"
-      style={{
-        background: scrolled ? 'rgba(8,8,10,0.65)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(18px) saturate(160%)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(18px) saturate(160%)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : '1px solid transparent',
-        transition: 'background 250ms ease, backdrop-filter 250ms ease, border-color 250ms ease',
-      }}
-    >
-      {/* Logo */}
-      <NBLogo />
-
-      {/* Nav links with sliding indicator */}
-      <div className="hidden md:flex gap-8 items-center relative pb-1">
-        {navLinks.map((link, idx) => {
-          const isActive = activeSection === link.href.replace('#', '')
-          return (
-            <a
-              key={link.label}
-              ref={(el) => { navRefs.current[idx] = el }}
-              href={link.href}
-              onClick={() => handleClick(link.href)}
-              className={
-                isActive
-                  ? 'font-body text-body-md text-primary'
-                  : 'font-body text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300'
-              }
-            >
-              {link.label}
-            </a>
-          )
-        })}
-
-        <div
-          className="absolute bottom-0 h-[2px] bg-primary rounded-full pointer-events-none"
-          style={{
-            left: indicator.left,
-            width: indicator.width,
-            transition: 'left 300ms ease, width 300ms ease',
-          }}
-        />
-      </div>
-
-      {/* HIRE ME */}
-      <a
-        href="#contact"
-        onClick={() => handleClick('#contact')}
-        className="font-mono text-label-sm text-primary px-6 py-2 rounded-full transition-all duration-300 hover:scale-105"
+    <div className="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+      <nav
+        className="pointer-events-auto w-full max-w-7xl flex items-center justify-between gap-4 px-5 py-3 rounded-2xl"
         style={{
-          border: '1px solid rgba(201,190,255,0.5)',
-          boxShadow: '0 0 10px rgba(201,190,255,0.15), inset 0 0 10px rgba(201,190,255,0.05)',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = '0 0 22px rgba(201,190,255,0.55), inset 0 0 14px rgba(201,190,255,0.1)'
-          e.currentTarget.style.borderColor = 'rgba(201,190,255,0.9)'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = '0 0 10px rgba(201,190,255,0.15), inset 0 0 10px rgba(201,190,255,0.05)'
-          e.currentTarget.style.borderColor = 'rgba(201,190,255,0.5)'
+          background: scrolled ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.05)',
+          backdropFilter: 'blur(16px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+          border: '1px solid rgba(176,100,255,0.25)',
+          boxShadow: '0 0 24px rgba(176,100,255,0.15), 0 4px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(201,190,255,0.08)',
+          transition: 'background 300ms ease',
         }}
       >
-        HIRE ME
-      </a>
-    </nav>
+        <NBLogo />
+
+        <div className="hidden md:flex gap-6 items-center relative pb-1">
+          {navLinks.map((link, idx) => {
+            const isActive = activeSection === link.href.replace('#', '')
+            return (
+              <a
+                key={link.label}
+                ref={(el) => { navRefs.current[idx] = el }}
+                href={link.href}
+                onClick={() => handleClick(link.href)}
+                className="font-mono text-sm tracking-wide transition-all duration-300"
+                style={{
+                  color: isActive ? '#cfbcff' : 'rgba(203,196,210,0.7)',
+                  textShadow: isActive ? '0 0 12px rgba(201,190,255,0.55)' : 'none',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = '#cfbcff'
+                    e.currentTarget.style.textShadow = '0 0 10px rgba(201,190,255,0.4)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = 'rgba(203,196,210,0.7)'
+                    e.currentTarget.style.textShadow = 'none'
+                  }
+                }}
+              >
+                {link.label}
+              </a>
+            )
+          })}
+
+          <div
+            className="absolute bottom-0 h-[1.5px] rounded-full pointer-events-none"
+            style={{
+              left: indicator.left,
+              width: indicator.width,
+              background: 'linear-gradient(90deg, transparent, #cfbcff, transparent)',
+              boxShadow: '0 0 8px rgba(201,190,255,0.7)',
+              transition: 'left 300ms ease, width 300ms ease',
+            }}
+          />
+        </div>
+
+        <a
+          href="#contact"
+          onClick={() => handleClick('#contact')}
+          className="font-mono text-sm tracking-widest px-5 py-2 rounded-full transition-all duration-300"
+          style={{
+            color: '#cfbcff',
+            border: '1px solid rgba(176,100,255,0.55)',
+            background: 'rgba(176,100,255,0.1)',
+            boxShadow: '0 0 14px rgba(176,100,255,0.2), inset 0 0 10px rgba(176,100,255,0.06)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(176,100,255,0.2)'
+            e.currentTarget.style.borderColor = 'rgba(201,190,255,0.85)'
+            e.currentTarget.style.boxShadow = '0 0 28px rgba(176,100,255,0.5), inset 0 0 14px rgba(176,100,255,0.1)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(176,100,255,0.1)'
+            e.currentTarget.style.borderColor = 'rgba(176,100,255,0.55)'
+            e.currentTarget.style.boxShadow = '0 0 14px rgba(176,100,255,0.2), inset 0 0 10px rgba(176,100,255,0.06)'
+          }}
+        >
+          HIRE ME
+        </a>
+      </nav>
+    </div>
   )
 }

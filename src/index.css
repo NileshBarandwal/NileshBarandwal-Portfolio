@@ -6,6 +6,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes nb-logo-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(134,59,255,0.5)) drop-shadow(0 0 10px rgba(134,59,255,0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(176,100,255,0.7)) drop-shadow(0 0 16px rgba(134,59,255,0.3));
+  }
+}
+
+@keyframes nb-halo-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1);    }
+  50%       { opacity: 0.8; transform: scale(1.06); }
+}
+
 @keyframes nb-glow-pulse {
   0%, 100% {
     filter: drop-shadow(0 0 5px rgba(201,190,255,0.9)) drop-shadow(0 0 14px rgba(167,139,250,0.55)) drop-shadow(0 0 28px rgba(124,58,237,0.25));
