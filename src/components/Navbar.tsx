@@ -3,54 +3,66 @@ import { navLinks } from '../data/mockData'
 
 function NBLogo() {
   return (
-    <a href="#home" aria-label="Home">
+    <a href="#home" aria-label="Home" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
       <svg
-        width="48"
-        height="40"
-        viewBox="0 0 48 40"
+        width="56"
+        height="42"
+        viewBox="0 0 56 42"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ filter: 'drop-shadow(0 0 8px rgba(201,190,255,0.8)) drop-shadow(0 0 2px rgba(201,190,255,1))' }}
+        style={{
+          filter:
+            'drop-shadow(0 0 4px rgba(201,190,255,1)) drop-shadow(0 0 10px rgba(201,190,255,0.6)) drop-shadow(0 0 20px rgba(201,190,255,0.3))',
+        }}
       >
-        {/* Circuit node dots */}
-        <circle cx="2" cy="6" r="1.5" fill="#c9beff" opacity="0.6" />
-        <circle cx="2" cy="34" r="1.5" fill="#c9beff" opacity="0.6" />
-        <circle cx="46" cy="6" r="1.5" fill="#c9beff" opacity="0.6" />
-        <circle cx="46" cy="34" r="1.5" fill="#c9beff" opacity="0.6" />
-        <circle cx="24" cy="2" r="1.5" fill="#c9beff" opacity="0.4" />
+        {/* ── N letterform ── */}
+        {/* Left vertical */}
+        <line x1="4" y1="8" x2="4" y2="34" stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" />
+        {/* Diagonal */}
+        <line x1="4" y1="8" x2="22" y2="34" stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" />
+        {/* Shared N-right / B-left vertical */}
+        <line x1="22" y1="8" x2="22" y2="34" stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" />
 
-        {/* N letterform — two verticals + diagonal */}
-        <line x1="4" y1="8" x2="4" y2="32" stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="4" y1="8" x2="20" y2="32" stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="20" y1="8" x2="20" y2="32" stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" />
-
-        {/* B letterform — vertical + two bumps */}
-        <line x1="26" y1="8" x2="26" y2="32" stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" />
+        {/* ── B letterform (fused — shares left vertical at x=22) ── */}
         {/* Top bump */}
         <path
-          d="M26 8 L38 8 Q44 8 44 14 Q44 20 26 20"
-          stroke="#c9beff"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
+          d="M22,8 L34,8 Q42,8 42,15 Q42,21 34,21 L22,21"
+          stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"
         />
-        {/* Bottom bump */}
+        {/* Bottom bump (slightly wider) */}
         <path
-          d="M26 20 L38 20 Q46 20 46 26 Q46 32 26 32"
-          stroke="#c9beff"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
+          d="M22,21 L35,21 Q46,21 46,28 Q46,34 35,34 L22,34"
+          stroke="#c9beff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"
         />
 
-        {/* Circuit trace lines */}
-        <line x1="2" y1="6" x2="4" y2="8" stroke="#c9beff" strokeWidth="1" opacity="0.5" />
-        <line x1="2" y1="34" x2="4" y2="32" stroke="#c9beff" strokeWidth="1" opacity="0.5" />
-        <line x1="46" y1="6" x2="44" y2="8" stroke="#c9beff" strokeWidth="1" opacity="0.5" />
-        <line x1="46" y1="34" x2="46" y2="26" stroke="#c9beff" strokeWidth="1" opacity="0.3" />
-        <line x1="24" y1="2" x2="24" y2="6" stroke="#c9beff" strokeWidth="1" opacity="0.3" />
+        {/* ── Circuit nodes at key junctions ── */}
+        <circle cx="4"  cy="8"  r="2"   fill="#c9beff" opacity="0.9" />
+        <circle cx="4"  cy="34" r="2"   fill="#c9beff" opacity="0.9" />
+        <circle cx="22" cy="8"  r="2"   fill="#c9beff" opacity="0.9" />
+        <circle cx="22" cy="21" r="1.5" fill="#c9beff" opacity="0.7" />
+        <circle cx="22" cy="34" r="2"   fill="#c9beff" opacity="0.9" />
+        <circle cx="42" cy="15" r="1.5" fill="#c9beff" opacity="0.7" />
+        <circle cx="46" cy="28" r="1.5" fill="#c9beff" opacity="0.7" />
+
+        {/* ── Circuit trace extensions ── */}
+        {/* Left side horizontal ticks */}
+        <line x1="4"  y1="8"  x2="1"  y2="8"  stroke="#c9beff" strokeWidth="1" strokeLinecap="round" opacity="0.45" />
+        <line x1="4"  y1="34" x2="1"  y2="34" stroke="#c9beff" strokeWidth="1" strokeLinecap="round" opacity="0.45" />
+        {/* Top trace from N-B junction going up then right */}
+        <line x1="22" y1="8"  x2="22" y2="4"  stroke="#c9beff" strokeWidth="1" strokeLinecap="round" opacity="0.35" />
+        <line x1="22" y1="4"  x2="32" y2="4"  stroke="#c9beff" strokeWidth="1" strokeLinecap="round" opacity="0.35" />
+        {/* Right-side trace from bottom B bump */}
+        <line x1="46" y1="28" x2="51" y2="28" stroke="#c9beff" strokeWidth="1" strokeLinecap="round" opacity="0.35" />
+        <line x1="51" y1="28" x2="51" y2="34" stroke="#c9beff" strokeWidth="1" strokeLinecap="round" opacity="0.35" />
+        {/* Vertical tick from B top */}
+        <line x1="34" y1="8"  x2="34" y2="4"  stroke="#c9beff" strokeWidth="1" strokeLinecap="round" opacity="0.3" />
+
+        {/* ── Terminal pads at trace ends ── */}
+        <circle cx="1"  cy="8"  r="1.2" fill="#c9beff" opacity="0.5" />
+        <circle cx="1"  cy="34" r="1.2" fill="#c9beff" opacity="0.5" />
+        <circle cx="32" cy="4"  r="1.2" fill="#c9beff" opacity="0.4" />
+        <circle cx="51" cy="34" r="1.2" fill="#c9beff" opacity="0.4" />
+        <circle cx="34" cy="4"  r="1.2" fill="#c9beff" opacity="0.35" />
       </svg>
     </a>
   )
@@ -62,26 +74,23 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const navRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
-  // Scroll-based background transition
+  // Scroll-based glassmorphism intensify
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Move indicator to match the active nav item
+  // Move sliding indicator to active nav item
   useEffect(() => {
     const idx = navLinks.findIndex((link) => link.href.replace('#', '') === activeSection)
     const el = navRefs.current[idx]
-    if (el) {
-      setIndicator({ left: el.offsetLeft, width: el.offsetWidth })
-    }
+    if (el) setIndicator({ left: el.offsetLeft, width: el.offsetWidth })
   }, [activeSection])
 
   // IntersectionObserver — scroll tracking
   useEffect(() => {
     const sectionIds = navLinks.map((link) => link.href.replace('#', '')).filter(Boolean)
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -90,27 +99,28 @@ export function Navbar() {
       },
       { rootMargin: '-80px 0px -40% 0px', threshold: 0 }
     )
-
     sectionIds.forEach((id) => {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     })
-
     return () => observer.disconnect()
   }, [])
 
-  const handleClick = (href: string) => {
-    setActiveSection(href.replace('#', ''))
-  }
+  const handleClick = (href: string) => setActiveSection(href.replace('#', ''))
 
   return (
     <nav
       className="fixed top-0 left-0 w-full flex justify-between items-center px-gutter py-stack-sm z-50"
       style={{
-        backgroundColor: scrolled ? 'rgba(8,8,10,0.85)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(201,190,255,0.1)' : '1px solid transparent',
-        transition: 'background-color 250ms ease, backdrop-filter 250ms ease, border-color 250ms ease',
+        background: scrolled
+          ? 'rgba(201,190,255,0.07)'
+          : 'rgba(201,190,255,0.04)',
+        backdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'blur(8px) saturate(140%)',
+        WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'blur(8px) saturate(140%)',
+        borderBottom: scrolled
+          ? '1px solid rgba(255,255,255,0.1)'
+          : '1px solid rgba(255,255,255,0.06)',
+        transition: 'background 250ms ease, backdrop-filter 250ms ease, border-color 250ms ease',
       }}
     >
       <NBLogo />
@@ -146,7 +156,7 @@ export function Navbar() {
         />
       </div>
 
-      {/* HIRE ME button */}
+      {/* HIRE ME */}
       <a
         href="#contact"
         onClick={() => handleClick('#contact')}
@@ -156,7 +166,7 @@ export function Navbar() {
           boxShadow: '0 0 10px rgba(201,190,255,0.15), inset 0 0 10px rgba(201,190,255,0.05)',
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = '0 0 20px rgba(201,190,255,0.5), inset 0 0 15px rgba(201,190,255,0.1)'
+          e.currentTarget.style.boxShadow = '0 0 22px rgba(201,190,255,0.55), inset 0 0 14px rgba(201,190,255,0.1)'
           e.currentTarget.style.borderColor = 'rgba(201,190,255,0.9)'
         }}
         onMouseLeave={(e) => {
