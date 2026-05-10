@@ -5,7 +5,7 @@ export function Hero() {
   const role = useTypewriter()
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-gutter pt-32 pb-margin">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center text-center px-gutter pt-32 pb-margin">
       <div className="w-full max-w-4xl mx-auto flex flex-col items-center space-y-stack-md">
 
         <h1 className="font-display text-display-xl leading-[0.95] hero-title-clip">

@@ -136,7 +136,7 @@ export const skillCategories: SkillCategory[] = [
 ]
 
 export const navLinks = [
-  { label: 'Home', href: '#', active: true },
+  { label: 'Home', href: '#home', active: true },
   { label: 'Experience', href: '#work' },
   { label: 'Projects', href: '#projects' },
   { label: 'Research', href: '#research' },
